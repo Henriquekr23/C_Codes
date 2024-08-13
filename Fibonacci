@@ -1,0 +1,16 @@
+#include <stdio.h>
+
+int i, termos, a = 0, b = 1, res;
+int main(void){
+    printf("Digite o numero de termos da serie de Fibonacci desejados:\n");
+    scanf("%d", &termos);
+    printf("Sequencia de Fibonacci:\n");
+
+    for (i = 0; i < termos; i++){
+        res = a + b;
+        a = b;
+        b = res;
+        printf("%d\n", res);
+    }
+    return 0;
+}
