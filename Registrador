@@ -1,0 +1,54 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+#define MAX_SIZE 100
+#define NOTAS_SIZE 2
+
+int registro;
+
+typedef struct Aluno{
+    char nome[MAX_SIZE];
+    float notas[NOTAS_SIZE];
+}Aluno;
+
+float calculoMedia(float n[]){
+    float media = 0;
+    for (int i = 0; i < NOTAS_SIZE; i++){
+        media += n[i];
+    }
+    return media/NOTAS_SIZE;
+}
+
+int main(){
+    printf("REGISTRADOR E CALCULADORA DE MEDIAS\n\n");
+    printf("Digite quantos alunos deseja registrar: ");
+    scanf("%d", &registro);
+
+    Aluno aluno[registro-1];
+    float mediaA[registro];
+    
+    for (int i = 0; i < registro; i++){
+        printf("\nDigite o nome do aluno %d: ", i+1);
+        scanf("%s", &aluno[i].nome);
+        printf("\n");
+
+            for (int j = 0; j < NOTAS_SIZE; j++){
+                printf("Nota %d: ", j+1);
+                scanf("%f", &aluno[i].notas[j]);
+            }
+        
+        mediaA[i] = calculoMedia(aluno[i].notas);
+    }
+
+    for (int i = 0; i < registro; i++){
+        printf("\nMedia %s: %.2f\n", aluno[i].nome, mediaA[i]);
+        if (mediaA[i] < 7.00){
+            printf("Reprovado\n");
+        } else {
+            printf("Aprovado\n");
+        }
+        
+    }
+    
+    return 0;
+}
