@@ -1,0 +1,47 @@
+#include <stdio.h>
+
+int bubbleSort(int numeros[]){
+    int menor;
+    for (int j = 0; j < 6; j++){
+        for (int i = 0; i < 6; i++){
+            if (numeros[i] > numeros[i+1]){
+                menor = numeros[i+1];
+                numeros[i+1] = numeros[i];
+                numeros[i]= menor;
+            }
+        }
+    }
+    return numeros[6];
+}
+
+int insertSort(int numeros[]){
+    int menor;
+    for (int i = 0; i < 6; i++){
+        for (int j = i+1; j < 6; j++){
+            if (numeros[i] > numeros[j]){
+                menor = numeros[j];
+                numeros[j] = numeros[i];
+                numeros[i]= menor;
+            }
+        }
+    }
+    return numeros[6];
+}
+
+
+int main(void){
+    int numeros[] = {4, 1, 20, 10, 4, 15};
+
+    printf("BubbleSort:\n");
+    bubbleSort(numeros);
+    for (int i = 0; i < 6; i++){
+        printf("%d ", numeros[i]);
+    }
+    
+    printf("\nInsertSort:\n");
+    insertSort(numeros);
+    for (int i = 0; i < 6; i++){
+        printf("%d ", numeros[i]);
+    }
+        
+}
