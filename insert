@@ -9,21 +9,20 @@ void insert_sort(int vetor[], int tam){ //Criação da função instert_sort com
     while((proximo != 0) && (vetor[proximo] < vetor[proximo - 1])){ //Looping enquanto criado, sendo executado quando a variável próximo for diferente de 0 e o valor na posição correspondente a variável for menor que o valor anterior
       troca = vetor[proximo]; //Variável auxiliar troca recebe o valor do próximo número na posição correspondente ao valor da variável próximo
       vetor[proximo] = vetor[proximo - 1]; //A posição correspondente ao valor da variável próximo recebe o valor 
-      vetor[proximo - 1] = troca;
-      proximo--;
+      vetor[proximo - 1] = troca; // A posição anterior do vetor recebe o valor da variável troca(valor na posição vetor[proximo])
+      proximo--; // O valor da variável próximo é reduzido em 1
     }
   }
 }
 
-int main() {
-   int vetor[6] = {8, 3, 1, 42, 12, 5};
+int main() { // Começo da função main
+   int vetor[6] = {8, 3, 1, 42, 12, 5}; //Declaração do vetor de teste, com tamanho 6
 
-   //Aplicando a ordenação;
-   insert_sort(vetor, 6);
+   insert_sort(vetor, 6); // Aplicação da função de ordenação bubble sort com os parâmetros vetor e o tamanho do vetor
 
    //Apresentando o vetor ordenado
-   for(int i = 0; i < 6; i++){
-	   printf("%d\n", vetor[i]);
+   for(int i = 0; i < 6; i++){ // Looping for de 0 até o tamanho do vetor
+	   printf("%d\n", vetor[i]); // Função para printar os valores nas posições já ordenadas
    }
 
 }
