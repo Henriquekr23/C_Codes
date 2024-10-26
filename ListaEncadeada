@@ -1,0 +1,51 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+typedef struct Node{
+    int info;
+    struct Node *next;
+} *Node;
+
+//Criando um novo node
+Node *criarNode(int info, Node *N){
+    Node newNode = malloc(sizeof(struct Node));
+    newNode->info = info;
+    newNode->next = N;
+    return newNode;
+}
+
+//Acrescentar elemento na lista
+void adicionarNode(int adicionar, Node N){
+    while (N->next != NULL && N->info < adicionar){
+        N = &N->next;
+    }
+    criarNode(adicionar, N);
+}
+
+void buscaNode(int busca, Node N){
+    int posicao, presente;
+    while (N != NULL){
+        if (busca == N->info){
+            presente++;
+        }
+        posicao++;
+        N = N->next;
+    }
+}
+
+void removerNode(int info){
+
+}
+
+//Exibir a Lista
+void exibirList(Node n){
+    while (n != NULL){
+        printf("%d ", n->info);
+        n = n->next;
+    }
+}
+
+int main(){
+
+    return 0;
+}
